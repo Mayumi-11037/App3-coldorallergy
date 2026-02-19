@@ -36,21 +36,18 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
-        var allergy_count = 0;
-        var cold_count = 0;
+    var allergy_count = 0;
+    var cold_count = 0;
 
+    function allergyAdd(){
+        allergy_count++;
+    }
 
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
-		alert(allergy_count);
+    function coldAdd(){
+        cold_count++;
+    }
 
-        }
-
-        function coldAdd(){
-            cold_count = cold_count + 1;
-        }
-
-  		function showResult(){
+    function showResult(){
         var resultText = "";
 
         if(allergy_count > cold_count){
@@ -65,8 +62,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
         document.getElementById("result").innerHTML = resultText;
     }
-	
-  </script>
+
+    function restartQuiz(){
+        allergy_count = 0;
+        cold_count = 0;
+        window.location.href = "#";
+    }
+</script>
 
 
 
@@ -114,8 +116,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
     	<div id="content" class="w3-container">
         <p>Are your eyes watery or itchy?</p>
-		<a href="#two" onclick="allergyAdd()" class="w3-btn w3-green w3-round">Yes</a>
-        <a href="#two" onclick="coldAdd()" class="w3-btn w3-red w3-round">No</a>
+		<a href="#two" onclick="allergyAdd()" class="w3-btn w3-black w3-round">Yes</a>
+        <a href="#two" onclick="coldAdd()" class="w3-btn w3-black w3-round">No</a>
     	</div>
 </div>
 
@@ -126,8 +128,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 		<p>Do you have a fever?</p>
-		<a href="#three" onclick="coldAdd()" class="w3-btn w3-green w3-round">Yes</a>
-        <a href="#three" onclick="allergyAdd()" class="w3-btn w3-red w3-round">No</a>
+		<a href="#three" onclick="coldAdd()" class="w3-btn w3-black w3-round">Yes</a>
+        <a href="#three" onclick="allergyAdd()" class="w3-btn w3-black w3-round">No</a>
 	</div>
 </div>	
 
@@ -138,8 +140,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
     	<div id="content" class="w3-container">
         <p>Do you have a sore throat?</p>
-		<a href="#four" onclick="coldAdd()" class="w3-btn w3-green w3-round">Yes</a>
-        <a href="#four" onclick="allergyAdd()" class="w3-btn w3-red w3-round">No</a>
+		<a href="#four" onclick="coldAdd()" class="w3-btn w3-black w3-round">Yes</a>
+        <a href="#four" onclick="allergyAdd()" class="w3-btn w3-black w3-round">No</a>
     	</div>
 </div>
 
@@ -150,8 +152,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
     	<div id="content" class="w3-container">
         <p>Are your symptoms seasonal or chronic?</p> 
-		<a href="#resultPage" onclick="allergyAdd(); showResult();" class="w3-btn w3-green w3-round">Yes</a>
-        <a href="#resultPage" onclick="coldAdd(); showResult();" class="w3-btn w3-red w3-round">No</a>
+		<a href="#resultPage" onclick="allergyAdd(); showResult();" class="w3-btn w3-black w3-round">Yes</a>
+        <a href="#resultPage" onclick="coldAdd(); showResult();" class="w3-btn w3-black w3-round">No</a>
     	</div>
 </div>
 
@@ -161,7 +163,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     </div>
     <div class="w3-container">
         <p id="result"></p>
-        <a href="#" class="w3-btn w3-blue w3-round" onclick="location.reload()">Restart Quiz</a>
+        <a href="#one" class="w3-btn w3-blue w3-round" onclick="restartQuiz()">Restart Quiz</a>
     </div>
 </div>
 	
