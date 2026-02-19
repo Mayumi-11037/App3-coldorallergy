@@ -50,6 +50,22 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
             cold_count = cold_count + 1;
         }
 
+  		function showResult(){
+        var resultText = "";
+
+        if(allergy_count > cold_count){
+            resultText = "You may be experiencing ALLERGIES.";
+        }
+        else if(cold_count > allergy_count){
+            resultText = "You may be experiencing a COLD.";
+        }
+        else{
+            resultText = "Your symptoms are unclear. Consider consulting a healthcare provider.";
+        }
+
+        document.getElementById("result").innerHTML = resultText;
+    }
+	
   </script>
 
 
@@ -97,7 +113,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Are your eyes watery or itchy?</p>    
+        <p>Are your eyes watery or itchy?</p>
+		<a href="#two" onclick="allergyAdd()" class="w3-btn w3-green w3-round">Yes</a>
+        <a href="#two" onclick="coldAdd()" class="w3-btn w3-red w3-round">No</a>
     	</div>
 </div>
 
@@ -108,6 +126,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 		<p>Do you have a fever?</p>
+		<a href="#three" onclick="coldAdd()" class="w3-btn w3-green w3-round">Yes</a>
+        <a href="#three" onclick="allergyAdd()" class="w3-btn w3-red w3-round">No</a>
 	</div>
 </div>	
 
@@ -117,7 +137,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Do you have a sore throat?</p>    
+        <p>Do you have a sore throat?</p>
+		<a href="#four" onclick="coldAdd()" class="w3-btn w3-green w3-round">Yes</a>
+        <a href="#four" onclick="allergyAdd()" class="w3-btn w3-red w3-round">No</a>
     	</div>
 </div>
 
@@ -127,8 +149,20 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Are your symptoms seasonal or chronic?</p>    
+        <p>Are your symptoms seasonal or chronic?</p> 
+		<a href="#resultPage" onclick="allergyAdd(); showResult();" class="w3-btn w3-green w3-round">Yes</a>
+        <a href="#resultPage" onclick="coldAdd(); showResult();" class="w3-btn w3-red w3-round">No</a>
     	</div>
+</div>
+
+<div class="page" id="resultPage">
+    <div class="w3-container w3-flat-carrot">
+        <h1>Your Results</h1>
+    </div>
+    <div class="w3-container">
+        <p id="result"></p>
+        <a href="#" class="w3-btn w3-blue w3-round" onclick="location.reload()">Restart Quiz</a>
+    </div>
 </div>
 	
 <footer class="w3-bottom w3-container w3-flat-carrot">
